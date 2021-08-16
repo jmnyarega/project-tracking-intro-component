@@ -1,26 +1,306 @@
-/*
- * - font types
- * - font sizes ...
- *
- */
-/*
- * variable colors
- *
- */
-/*
- * Global styles
- *
- */
 body {
-  background-color: lightblue;
+  font-family: "Barlow", sans-serif;
+  font-size: 1.125rem;
+  max-width: 90em;
+  min-height: 100vh;
+}
+body::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 24rem;
+  top: 0;
+  right: 0;
+  left: 50%;
+  background-color: #eef3f6;
+  border-radius: 0 0 0 5rem;
 }
 
-/*
- * Custom reset files
- *
- */
+.container {
+  width: 80%;
+  margin-inline: auto;
+}
+
+@media (min-width: 45em) {
+  main {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    width: 90%;
+  }
+}
+
+/*----------------------------
+RESET: START
+------------------------------*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.45;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 150%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 .button {
-  color: black;
+  padding: 0.875em 1.5625em;
+  border: 1px solid transparent;
+  outline: none;
+  display: inline-block;
+  background-color: #ff5c5c;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 350ms linear;
+}
+.button:hover, .button:focus {
+  color: #ff5c5c;
+  background-color: white;
+  border: 1px solid #ff5c5c;
+}
+
+.intro {
+  color: #242942;
+}
+.intro__label {
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.9375rem;
+  color: #5b5f71;
+}
+.intro__label span {
+  color: white;
+  background-color: #242942;
+  padding: 0.3125em 0.625em;
+  border-radius: 99em;
+}
+.intro__title {
+  max-width: 19.4375rem;
+  margin-bottom: 1.25rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+}
+.intro__text {
+  margin-bottom: 2rem;
+  max-width: 27ch;
+}
+.intro__cta {
+  max-width: 18.75rem;
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.intro__cta span {
+  color: #5b5f71;
+}
+
+.img {
+  overflow-x: hidden;
+  margin-bottom: 5.125rem;
+}
+.img img {
+  margin-left: auto;
+}
+@media (min-width: 45em) {
+  .img {
+    margin-bottom: 0;
+  }
+}
+
+.header {
+  padding-top: 2rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header input {
+  display: none;
+}
+@media (min-width: 45em) {
+  .header {
+    margin-bottom: 7.25rem;
+  }
+  .header .hamburger {
+    display: none;
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: white;
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+  padding-block: 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 300ms linear;
+}
+.nav__items {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media (min-width: 45em) {
+  .nav__items {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+.nav__item {
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: bold;
+  color: #242942;
+}
+.nav .login {
+  padding-top: 1.5rem;
+  color: #a0a1ac;
+  border-top: 1px solid;
+}
+@media (min-width: 45em) {
+  .nav .login {
+    padding-top: 0;
+    border-top: initial;
+  }
+}
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+}
+.nav__link:hover, .nav__link:focus {
+  opacity: 0.6;
+}
+@media (min-width: 45em) {
+  .nav {
+    position: initial;
+    opacity: 1;
+    z-index: 1;
+    background-color: initial;
+    box-shadow: none;
+  }
+}
+
+#toggle:checked ~ .nav {
+  opacity: 1;
+  z-index: 1;
+  top: 12%;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  background-color: #242942;
+  height: 2px;
+  width: 3rem;
+  transition: all 300ms linear;
+}
+.hamburger span + span {
+  margin-top: 1rem;
+}
+.hamburger:focus-within {
+  background-color: red;
+}
+
+#toggle:checked ~ .hamburger .top {
+  transform: translateY(1.1rem) rotateZ(45deg);
+}
+
+#toggle:checked ~ .hamburger .bottom {
+  transform: translateY(-1.1rem) rotateZ(-45deg);
+}
+
+#toggle:checked ~ .hamburger .middle {
+  width: 0;
 }
 
 /*

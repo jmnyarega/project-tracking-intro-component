@@ -3,13 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/index.css" />
-    <title>Document</title>
+    <title>Project tracking intro component</title>
   </head>
   <body>
-    <header>This is the header</header>
-    <nav>This is the nav</nav>
-    <main>This is the main</main>
-    <footer>This is the footer</footer>
+    <header class="header container">
+      <img src="./images/logo.svg" alt="logo" />
+      <input type="checkbox" id="toggle" />
+      <label class="hamburger" for="toggle">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </label>
+      <nav class="nav container">
+        <ul class="nav__items">
+          <li class="nav__item">
+            <a href="#0" class="nav__link"> product </a>
+          </li>
+          <li class="nav__item">
+            <a href="#0" class="nav__link">features</a>
+          </li>
+          <li class="nav__item">
+            <a href="#0" class="nav__link">pricing</a>
+          </li>
+          <li class="nav__item login">
+            <a href="#0" class="nav__link">login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="img">
+        <img src="./images/illustration-devices.svg" alt="" />
+      </div>
+      <div class="intro container">
+        <div class="intro__label">
+          <span>new</span>
+          monograph dashboard
+        </div>
+        <h1 class="intro__title">powerful insights into your team</h1>
+        <p class="intro__text">
+          Project planning and time tracking for agile teams
+        </p>
+        <div class="intro__cta">
+          <a href="#0" class="button">schedule a demo</a>
+          <span>to see a preview</span>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 </html>

@@ -1,0 +1,49 @@
+@use 'abstract';
+
+.intro {
+    color: abstract.$very-dark-blue;
+
+    &__label {
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+        font-family: abstract.$ff-alt;
+        font-size: 0.9375rem;
+        color: abstract.$dark-grayish-blue;
+        span {
+            color: abstract.$white;
+            background-color: abstract.$very-dark-blue;
+            padding: 0.3125em 0.625em;
+            border-radius: 99em;
+        }
+    }
+
+    &__title {
+        max-width: 19.4375rem;
+        margin-bottom: 1.25rem;
+        font-size: 2.5rem;
+        line-height: 1;
+        text-transform: uppercase;
+        font-family: abstract.$ff-alt;
+    }
+
+    &__text {
+        margin-bottom: 2rem;
+        max-width: 27ch;
+    }
+
+    &__cta {
+        max-width: 18.75rem;
+        text-transform: uppercase;
+        font-family: abstract.$ff-alt;
+        font-size: 0.875rem;
+
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        span {
+            color: abstract.$dark-grayish-blue;
+        }
+    }
+}

@@ -1,5 +1,23 @@
 @use 'abstract';
 
 .button {
-    color: abstract.$black;
+    padding: 0.875em 1.5625em;
+    border: 1px solid transparent;
+    outline: none;
+    display: inline-block;
+
+    background-color: abstract.$red;
+    color: abstract.$white;
+    border-radius: 0.5rem;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    transition: all 350ms linear;
+
+    &:hover, &:focus {
+        color: abstract.$red;
+        background-color: abstract.$white;
+        border: 1px solid abstract.$red;
+    }
 }

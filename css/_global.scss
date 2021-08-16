@@ -1,10 +1,40 @@
-/*
- * Global styles
- *
- */
-
 @use 'abstract';
 
 body {
-    background-color: abstract.$light-blue;
+    font-family: abstract.$ff-default;
+    font-size: 1.125rem;
+    max-width: 90em;
+
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+
+        bottom: 24rem; // ????
+        top: 0;
+        right: 0;
+        left: 50%;
+
+        background-color: abstract.$light-grayish-blue;
+        border-radius: 0 0 0 5rem;
+    }
+
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    margin-inline: auto;
+}
+
+main {
+    @media (min-width: 45em) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-left: auto;
+        width: 90%;
+    }
 }
