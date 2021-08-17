@@ -19,10 +19,6 @@
 
 }
 
-.hamburger + input:focus , .hamburger + input:hover {
-    border: 5px solid;
-}
-
 #toggle {
     &:focus + label,
     &:hover + label {
