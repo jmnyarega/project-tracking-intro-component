@@ -20,14 +20,16 @@
   </head>
   <body>
     <header class="header container">
-      <img src="./images/logo.svg" alt="logo" />
-      <input type="checkbox" id="toggle" />
-      <label class="hamburger" for="toggle">
+      <a href="#0" class="header__img">
+        <img src="./images/logo.svg" alt="tracking project logo" />
+      </a>
+      <input type="checkbox" id="toggle" onchange="return toggle()" />
+      <label class="hamburger" for="toggle" aria-controls="menu">
         <span class="top"></span>
         <span class="middle"></span>
         <span class="bottom"></span>
       </label>
-      <nav class="nav container">
+      <nav class="nav" role="navigation">
         <ul class="nav__items">
           <li class="nav__item">
             <a href="#0" class="nav__link"> product </a>
@@ -38,6 +40,7 @@
           <li class="nav__item">
             <a href="#0" class="nav__link">pricing</a>
           </li>
+          <li class="divider nav__item"></li>
           <li class="nav__item login">
             <a href="#0" class="nav__link">login</a>
           </li>
@@ -63,6 +66,17 @@
         </div>
       </div>
     </main>
-    <footer></footer>
+    <script>
+      const checkbox = document.getElementById("toggle");
+      const label = document.querySelector("#toggle + label");
+
+      function toggle() {
+        if (checkbox.checked) {
+          label.setAttribute("aria-expanded", "true");
+        } else {
+          label.setAttribute("aria-expanded", "false");
+        }
+      }
+    </script>
   </body>
 </html>

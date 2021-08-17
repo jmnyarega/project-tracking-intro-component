@@ -2,6 +2,7 @@
 
 .hamburger {
     cursor: pointer;
+    outline: none;
 
     span {
         display: block;
@@ -16,20 +17,24 @@
         margin-top: 1rem;
     }
 
-    &:focus-within {
-        background-color: red; // ???
+}
+
+#toggle {
+    &:focus + label,
+    &:hover + label {
+        outline: 1px dotted abstract.$very-dark-blue;
+        outline-offset: 2px;
     }
 
-}
+    &:checked ~ .hamburger .top {
+        transform: translateY(1.1rem) rotateZ(45deg);
+    }
 
-#toggle:checked ~ .hamburger .top {
-    transform: translateY(1.1rem) rotateZ(45deg);
-}
+    &:checked ~ .hamburger .bottom {
+        transform: translateY(-1.1rem) rotateZ(-45deg);
+    }
 
-#toggle:checked ~ .hamburger .bottom {
-    transform: translateY(-1.1rem) rotateZ(-45deg);
-}
-
-#toggle:checked ~ .hamburger .middle {
-    width: 0;
+    &:checked ~ .hamburger .middle {
+        width: 0;
+    }
 }

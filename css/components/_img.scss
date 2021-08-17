@@ -1,9 +1,6 @@
 .img {
     overflow-x: hidden;
-    margin-bottom: 5.125rem;
-    img {
-        margin-left: auto;
-    }
+    margin: 0 0 5.125rem auto;
 
     @media (min-width: 45em) {
         margin-bottom: 0

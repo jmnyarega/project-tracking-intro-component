@@ -2,13 +2,12 @@ body {
   font-family: "Barlow", sans-serif;
   font-size: 1.125rem;
   max-width: 90em;
-  min-height: 100vh;
 }
 body::after {
   content: "";
   position: absolute;
   z-index: -1;
-  bottom: 24rem;
+  bottom: 57vh;
   top: 0;
   right: 0;
   left: 50%;
@@ -51,16 +50,9 @@ ol[class] {
 /* Remove default margin */
 body,
 h1,
-h2,
-h3,
-h4,
 p,
 ul[class],
-ol[class],
-figure,
-blockquote,
-dl,
-dd {
+ol[class] {
   margin: 0;
 }
 
@@ -82,28 +74,14 @@ a:not([class]) {
 }
 
 /* Make images easier to work with */
-img,
-picture {
+img {
   max-width: 150%;
   display: block;
 }
 
-/* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
-}
-
 /* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
+button {
   font: inherit;
-}
-
-/* Blur images when they have no alt attribute */
-img:not([alt]) {
-  filter: blur(10px);
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
@@ -135,36 +113,38 @@ img:not([alt]) {
 
 .intro {
   color: #242942;
+  font-family: "Barlow Condensed", sans-serif;
 }
 .intro__label {
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 0.9375rem;
   color: #5b5f71;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.1875rem;
 }
 .intro__label span {
+  letter-spacing: initial;
   color: white;
   background-color: #242942;
   padding: 0.3125em 0.625em;
   border-radius: 99em;
 }
 .intro__title {
-  max-width: 19.4375rem;
-  margin-bottom: 1.25rem;
+  max-width: 20ch;
   font-size: 2.5rem;
-  line-height: 1;
   text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
+  line-height: 1;
+  margin-bottom: 1.25rem;
 }
 .intro__text {
   margin-bottom: 2rem;
+  font-family: "Barlow", sans-serif;
   max-width: 27ch;
 }
 .intro__cta {
   max-width: 18.75rem;
   text-transform: uppercase;
-  font-family: "Barlow Condensed", sans-serif;
   font-size: 0.875rem;
   display: flex;
   justify-content: space-between;
@@ -173,15 +153,13 @@ img:not([alt]) {
   align-items: center;
 }
 .intro__cta span {
+  letter-spacing: 0.1875rem;
   color: #5b5f71;
 }
 
 .img {
   overflow-x: hidden;
-  margin-bottom: 5.125rem;
-}
-.img img {
-  margin-left: auto;
+  margin: 0 0 5.125rem auto;
 }
 @media (min-width: 45em) {
   .img {
@@ -197,7 +175,13 @@ img:not([alt]) {
   align-items: center;
 }
 .header input {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.header__img:focus, .header__img:hover {
+  outline: 1px dotted #242942;
+  outline-offset: 2px;
 }
 @media (min-width: 45em) {
   .header {
@@ -215,11 +199,13 @@ img:not([alt]) {
   right: 0;
   opacity: 0;
   z-index: -1;
+  width: 80%;
+  margin-inline: auto;
   background-color: white;
-  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0.9375rem 0.125rem rgba(0, 0, 0, 0.1);
   padding-block: 1.5rem;
   border-radius: 0.5rem;
-  transition: all 300ms linear;
+  transition: all 100ms linear;
 }
 .nav__items {
   list-style: none;
@@ -241,22 +227,44 @@ img:not([alt]) {
   color: #242942;
 }
 .nav .login {
-  padding-top: 1.5rem;
   color: #a0a1ac;
-  border-top: 1px solid;
-}
-@media (min-width: 45em) {
-  .nav .login {
-    padding-top: 0;
-    border-top: initial;
-  }
 }
 .nav__link {
+  position: relative;
   text-decoration: none;
+  outline: none;
   color: inherit;
+  transition: all 250ms linear;
 }
-.nav__link:hover, .nav__link:focus {
-  opacity: 0.6;
+.nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 100%;
+  background-color: currentColor;
+  height: 2px;
+  transition: all 300ms ease-in-out;
+}
+.nav__link:hover::after, .nav__link:focus::after {
+  left: 0;
+  right: 0;
+}
+.nav .divider {
+  background-color: #eef3f6;
+  color: #a0a1ac;
+  height: 1px;
+  text-indent: -99em;
+}
+@media (min-width: 45em) {
+  .nav .divider {
+    background-color: #a0a1ac;
+    text-indent: initial;
+    align-self: center;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 50%;
+  }
 }
 @media (min-width: 45em) {
   .nav {
@@ -265,6 +273,8 @@ img:not([alt]) {
     z-index: 1;
     background-color: initial;
     box-shadow: none;
+    width: initial;
+    margin-inline: initial;
   }
 }
 
@@ -276,6 +286,7 @@ img:not([alt]) {
 
 .hamburger {
   cursor: pointer;
+  outline: none;
 }
 .hamburger span {
   display: block;
@@ -287,24 +298,17 @@ img:not([alt]) {
 .hamburger span + span {
   margin-top: 1rem;
 }
-.hamburger:focus-within {
-  background-color: red;
-}
 
+#toggle:focus + label, #toggle:hover + label {
+  outline: 1px dotted #242942;
+  outline-offset: 2px;
+}
 #toggle:checked ~ .hamburger .top {
   transform: translateY(1.1rem) rotateZ(45deg);
 }
-
 #toggle:checked ~ .hamburger .bottom {
   transform: translateY(-1.1rem) rotateZ(-45deg);
 }
-
 #toggle:checked ~ .hamburger .middle {
   width: 0;
 }
-
-/*
- *
- * Home for sass
- *
- */
