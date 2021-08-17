@@ -299,6 +299,10 @@ button {
   margin-top: 1rem;
 }
 
+.hamburger + input:focus, .hamburger + input:hover {
+  border: 5px solid;
+}
+
 #toggle:focus + label, #toggle:hover + label {
   outline: 1px dotted #242942;
   outline-offset: 2px;
